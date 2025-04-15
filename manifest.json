@@ -1,15 +1,18 @@
 {
   "manifest_version": 3,
-  "name": "StaySafe - Gambling Site Blocker",
+  "name": "Gambling Site Blocker",
   "version": "1.0",
-  "description": "Blocks gambling and betting websites to protect users.",
-  "permissions": ["webRequest", "webRequestBlocking", "<all_urls>"],
-  "background": {
-    "service_worker": "background.js"
+  "description": "Blocks gambling and betting websites.",
+  "permissions": ["declarativeNetRequest"],
+  "host_permissions": ["*://*/*"],
+  "action": {
+    "default_title": "Gambling Blocker"
   },
-  "icons": {
-    "16": "icon.png",
-    "48": "icon.png",
-    "128": "icon.png"
+  "declarative_net_request": {
+    "rule_resources": [{
+      "id": "blockRules",
+      "enabled": true,
+      "path": "rules.json"
+    }]
   }
 }
